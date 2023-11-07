@@ -20,9 +20,7 @@ export async function GET({ request }: { request: Request }) {
 /**
  * Check the incoming request body for 'origin' and use it to call above GET handler, and return it's response.
  */
-export async function POST({ request }: { request: Request }) {
-	const url = new URL(request.url);
-	console.log(url.href);
+export async function POST({ request, url }: { request: Request; url: URL }) {
 	const body = await request.json();
 	const origin = body.origin;
 	// call above GET handler, and return it's response

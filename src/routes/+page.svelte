@@ -1,4 +1,7 @@
 <script lang='ts'>
+	/** @type {import('./$types').PageData} */
+	export let data: any;
+
   /**
    * Submit fetch request with user input as origin header.
    */
@@ -33,6 +36,14 @@
     serverSideHeader = data.origin || `none.`;
   }
 </script>
+
+<div>
+  <h2>Page Load</h2>
+  <p>When the page loads, it makes a request to the `/` API with an origin header. The API listening for this request will check the request for an origin header, and echo back what it saw. This happens server side, so the origin header works.</p>
+  <p class="result">The server saw this origin header: {data.origin}</p>
+</div>
+
+<br/>
 
 <div>
   <h2>Client Side Fetch</h2>
