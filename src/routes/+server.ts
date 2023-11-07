@@ -22,13 +22,13 @@ export async function GET({ request }: { request: Request }) {
  */
 export async function POST({ request }: { request: Request }) {
 	const url = new URL(request.url);
-
+	console.log(url.href);
 	const body = await request.json();
 	const origin = body.origin;
 	// call above GET handler, and return it's response
 	const response = await fetch(url.href, {
 		headers: {
-			origin: origin
+			origin
 		}
 	});
 	return response;
